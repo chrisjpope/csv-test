@@ -36,7 +36,11 @@
         
         // Add Y axis
         
-        var y = d3.scaleLinear() .domain([330000, 380000]) .range([ height, 0]); svg.append("g") .call(d3.axisLeft(y));
+        var y = d3.scaleLinear()
+.domain([330000, 380000])
+.range([ height, 0]);
+svg.append("g")
+.call(d3.axisLeft(y));
 
         // Add dots
   svg.append('g')
@@ -44,8 +48,8 @@
     .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) { return x(d.GrLivArea); } )
-      .attr("cy", function (d) { return y(d.SalePrice); } )
+      .attr("cx", function (d) { return x(d.GeoX); } )
+      .attr("cy", function (d) { return y(d.GeoY); } )
       .attr("r", 1.5)
       .style("fill", "#69b3a2")
 
@@ -105,8 +109,11 @@
   var mousemove = function(d) {
     tooltip
       .html(d.SiteNameAddress)
-      .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-      .style("top", (d3.mouse(this)[1]) + "px")
+      .style("left", (d3.mouse(this)[0]+90) + "px")
+
+// It is important to put the +90: otherwise the tooltip is exactly where the point is an it creates a weird effect
+      
+.style("top", (d3.mouse(this)[1]) + "px")
   }
 
   // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
