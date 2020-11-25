@@ -12,37 +12,42 @@
         <p>Simple x, y scatterplot</p>       
 
         <!-- Create a div where the graph will take place -->
-        <div id="my_dataviz2"></div>
+        <div id="my_dataviz_a"></div>
         <script>
-            // set the dimensions and margins of the graph
-            var margin = {top: 10, right: 30, bottom: 30, left: 60},
-                width = 460 - margin.left - margin.right,
-                height = 400 - margin.top - margin.bottom;
-            
-            // append the svg object to the body of the page
-            var svg = d3.select("#my_dataviz2")
-            .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            
-            //Read the data
-            d3.csv("https://raw.githubusercontent.com/chrisjpope/csv-test/main/Brownfield_land_Register_2019.csv", function(data) {
-                
-                // Add X axis
-                var x = d3.scaleLinear() .domain([400000, 450000]) .range([ 0, width ]); svg.append("g") .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
-        
-        // Add Y axis
-        
-        var y = d3.scaleLinear()
-.domain([330000, 380000])
-.range([ height, 0]);
-svg.append("g")
-.call(d3.axisLeft(y));
 
-        // Add dots
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz_a")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("https://raw.githubusercontent.com/chrisjpope/csv-test/main/Brownfield_land_Register_2019.csv", function(data) {
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([330000, 380000])
+    .range([ 0, width ]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([400000, 450000])
+    .range([ height, 0]);
+  svg.append("g")
+    .call(d3.axisLeft(y));
+
+  // Add dots
   svg.append('g')
     .selectAll("dot")
     .data(data)
@@ -59,7 +64,7 @@ svg.append("g")
         
         <p>Basic scatterplot with tooltips</p>
         <!-- Create a div where the graph will take place -->
-        <div id="my_dataviz"></div>
+        <div id="my_dataviz_b"></div>
         <script>
             // set the dimensions and margins of the graph
             var margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -67,7 +72,7 @@ svg.append("g")
                 height = 400 - margin.top - margin.bottom;
             
             // append the svg object to the body of the page
-            var svg = d3.select("#my_dataviz")
+            var svg = d3.select("#my_dataviz_b")
             .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
