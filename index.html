@@ -39,7 +39,7 @@ d3.csv("https://raw.githubusercontent.com/chrisjpope/csv-test/main/Brownfield_la
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([400000, 500000])
+    .domain([0, 500000])
     .range([ 0, width ]);
   svg1.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -47,7 +47,7 @@ d3.csv("https://raw.githubusercontent.com/chrisjpope/csv-test/main/Brownfield_la
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([400000, 500000])
+    .domain([0, 500000])
     .range([ height, 0]);
   svg1.append("g")
     .call(d3.axisLeft(y));
@@ -85,7 +85,7 @@ d3.csv("https://raw.githubusercontent.com/chrisjpope/csv-test/main/Brownfield_la
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([4000000, 500000])
+    .domain([400000, 500000])
     .range([ 0, width ]);
   svg2.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -93,7 +93,7 @@ d3.csv("https://raw.githubusercontent.com/chrisjpope/csv-test/main/Brownfield_la
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([40000, 500000])
+    .domain([400000, 500000])
     .range([ height, 0]);
   svg2.append("g")
     .call(d3.axisLeft(y));
